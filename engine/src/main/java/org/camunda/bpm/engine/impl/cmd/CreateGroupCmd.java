@@ -39,8 +39,6 @@ public class CreateGroupCmd extends AbstractWritableIdentityServiceCmd<Group> im
   }
   
   protected Group executeCmd(CommandContext commandContext) {
-    ensureWhitelistedResourceId(commandContext, "Group", groupId);
-
     return commandContext
       .getWritableIdentityProvider()
       .createNewGroup(groupId);

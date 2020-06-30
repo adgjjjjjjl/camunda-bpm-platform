@@ -39,8 +39,6 @@ public class CreateUserCmd extends AbstractWritableIdentityServiceCmd<User> impl
   }
   
   protected User executeCmd(CommandContext commandContext) {
-    ensureWhitelistedResourceId(commandContext, "User", userId);
-
     return commandContext
       .getWritableIdentityProvider()
       .createNewUser(userId);
