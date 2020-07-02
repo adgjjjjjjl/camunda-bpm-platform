@@ -106,8 +106,9 @@
 
   <update id="updateHistoricProcessInstanceEventsByRootProcessInstanceId"
           parameterType="java.util.Map">
-    update ${prefix}ACT_HI_PROCINST WITH (FORCESEEK) set
+    update ${prefix}ACT_HI_PROCINST set
     REMOVAL_TIME_ = #{removalTime, jdbcType=TIMESTAMP}
+    FROM ${prefix}ACT_HI_PROCINST WITH (FORCESEEK)
 
     where ROOT_PROC_INST_ID_ = #{rootProcessInstanceId, jdbcType=VARCHAR}
   </update>
